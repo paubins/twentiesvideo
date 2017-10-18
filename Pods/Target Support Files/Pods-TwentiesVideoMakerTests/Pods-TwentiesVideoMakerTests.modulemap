@@ -1,0 +1,6 @@
+framework module Pods_TwentiesVideoMakerTests {
+  umbrella header "Pods-TwentiesVideoMakerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

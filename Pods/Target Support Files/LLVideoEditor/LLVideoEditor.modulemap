@@ -1,0 +1,6 @@
+framework module LLVideoEditor {
+  umbrella header "LLVideoEditor-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_TwentiesVideoMaker {
+  umbrella header "Pods-TwentiesVideoMaker-umbrella.h"
+
+  export *
+  module * { export * }
+}
