@@ -11,105 +11,43 @@
 
 @implementation ExporterController
 
-+ (void)export:(NSURL *)exportUrl fromOutput:(NSArray *)outputFiles {
-    
++ (void)export:(NSURL *)exportUrl fromOutput:(NSArray *)outputFiles handler:(void (^)(NSURL*))handler{
     AVMutableComposition* mixComposition = [AVMutableComposition composition];
     
+    CMTime currentTime = kCMTimeZero;
+    
+    NSMutableArray* videoAssets = [[[NSArray alloc] init] mutableCopy];
+    AVMutableCompositionTrack *compositionVideoTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo  preferredTrackID:kCMPersistentTrackID_Invalid];
+    AVAssetTrack *clipVideoTrack = nil;
+    AVMutableCompositionTrack *audioComposition = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];;
+    
     for (int i = 0; i < outputFiles.count; i++) {
-        AVURLAsset* videoAsset = [[AVURLAsset alloc] initWithURL:(NSURL *)outputFiles[i] options:nil];
-        
-        AVMutableCompositionTrack *compositionVideoTrack = [mixComposition addMutableTrackWithMediaType:AVMediaTypeVideo  preferredTrackID:kCMPersistentTrackID_Invalid];
-        
-        AVAssetTrack *clipVideoTrack = [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
-        
+        AVURLAsset *videoAsset = [[AVURLAsset alloc] initWithURL:(NSURL *)outputFiles[i] options:nil];
+        [videoAssets addObject:videoAsset];
+
+        clipVideoTrack = [[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
         
         [compositionVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration)
                                        ofTrack:clipVideoTrack
-                                        atTime:kCMTimeZero error:nil];
+                                        atTime:currentTime error:nil];
         
-        AVMutableCompositionTrack *audioComposition = nil;
         if (0 < [videoAsset tracksWithMediaType:AVMediaTypeAudio].count) {
-            audioComposition = [mixComposition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
             AVAssetTrack *sourceAudioTrack = [[videoAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
-            [audioComposition insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration) ofTrack:sourceAudioTrack atTime:kCMTimeZero error:nil]; //[asset duration]
+            [audioComposition insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoAsset.duration) ofTrack:sourceAudioTrack atTime:currentTime error:nil]; //[asset duration]
         }
         
-        [compositionVideoTrack setPreferredTransform:[[[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0] preferredTransform]];
+        currentTime = CMTimeAdd(currentTime, videoAsset.duration);
+        
+//        [compositionVideoTrack setPreferredTransform:[[[videoAsset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0] preferredTransform]];
         
     }
-    
-//    AVMutableVideoCompositionInstruction *instruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
-//    instruction.timeRange = CMTimeRangeMake(kCMTimeZero, [mixComposition duration]);
-//    AVAssetTrack *videoTrack = [[mixComposition tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
-//    AVMutableVideoCompositionLayerInstruction* layerInstruction = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:videoTrack];
-    
-    //*****************//
-    UIImageOrientation videoAssetOrientation_;// = UIImageOrientationUp;
-    BOOL isVideoAssetPortrait_  = NO;
-    
-    CGAffineTransform videoTransform = clipVideoTrack.preferredTransform;
-    
-    if (videoTransform.a == 0 && videoTransform.b == 1.0 && videoTransform.c == -1.0 && videoTransform.d == 0) {
-        videoAssetOrientation_ = UIImageOrientationRight;
-        isVideoAssetPortrait_ = YES;
-    }
-    if (videoTransform.a == 0 && videoTransform.b == -1.0 && videoTransform.c == 1.0 && videoTransform.d == 0) {
-        videoAssetOrientation_ =  UIImageOrientationLeft;
-        isVideoAssetPortrait_ = YES;
-    }
-    if (videoTransform.a == 1.0 && videoTransform.b == 0 && videoTransform.c == 0 && videoTransform.d == 1.0) {
-        videoAssetOrientation_ =  UIImageOrientationUp;
-        isVideoAssetPortrait_ = NO;
-    }
-    if (videoTransform.a == -1.0 && videoTransform.b == 0 && videoTransform.c == 0 && videoTransform.d == -1.0) {
-        videoAssetOrientation_ = UIImageOrientationDown;
-        isVideoAssetPortrait_ = NO;
-    }
-    
-//    [layerInstruction setTransform:clipVideoTrack.preferredTransform atTime:kCMTimeZero];
-//    [layerInstruction setOpacity:0.0 atTime:videoAsset.duration];
-    
-    //*****************//
-    CGSize naturalSize;
-    if(isVideoAssetPortrait_){
-        naturalSize = CGSizeMake(clipVideoTrack.naturalSize.height, clipVideoTrack.naturalSize.width);
-    } else {
-        naturalSize = clipVideoTrack.naturalSize;
-    }
-//
-//    CALayer *parentLayer = [CALayer layer];
-//    CALayer *videoLayer = [CALayer layer];
-//
-//    NSLog(@"videoSize ++++: %@", NSStringFromCGSize(naturalSize));
-//    AVMutableVideoComposition* videoComp = [AVMutableVideoComposition videoComposition] ;
-//
-//    float renderWidth, renderHeight;
-//    renderWidth = naturalSize.width;
-//    renderHeight = naturalSize.height;
-//    videoComp.renderSize = CGSizeMake(renderWidth, renderHeight);
-//    videoComp.instructions = [NSArray arrayWithObject:instruction];
-//    videoComp.frameDuration = CMTimeMake(1, 30);
-//
-//    //Set Up the Parent Layer
-//    parentLayer.frame = CGRectMake(0, 0, naturalSize.width, naturalSize.height);
-//    videoLayer.frame = CGRectMake(0, 0, naturalSize.width, naturalSize.height);
-//    [parentLayer addSublayer:videoLayer];
-//    [parentLayer addSublayer:overlayLayer];
-//
-//    videoComp.animationTool = [AVVideoCompositionCoreAnimationTool videoCompositionCoreAnimationToolWithPostProcessingAsVideoLayer:videoLayer inLayer:parentLayer];
-//
-//    /// instruction
-//
-//    instruction.layerInstructions = [NSArray arrayWithObject:layerInstruction];
-//    videoComp.instructions = [NSArray arrayWithObject: instruction];
     
     AVAssetExportSession *assetExport = [[AVAssetExportSession alloc] initWithAsset:mixComposition presetName:AVAssetExportPresetHighestQuality];
     
     assetExport.outputURL = exportUrl;
     assetExport.outputFileType = AVFileTypeQuickTimeMovie;
     assetExport.shouldOptimizeForNetworkUse = YES;
-//    assetExport.videoComposition = videoComp;
-    
+
     [assetExport exportAsynchronouslyWithCompletionHandler:
      ^(void ) {
          switch (assetExport.status) {
@@ -128,10 +66,8 @@
                  UISaveVideoAtPathToSavedPhotosAlbum(assetExport.outputURL.path, self, nil, nil);
                  dispatch_async(dispatch_get_main_queue(), ^
                                 {
-                                    
+                                    handler(exportUrl);
                                 });
-                 
-                 
                  break;
              }
                  

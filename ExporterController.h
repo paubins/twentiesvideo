@@ -12,7 +12,7 @@
 
 @interface ExporterController : NSObject
 
-+ (void)export:(NSURL *)exportUrl fromOutput:(NSArray *)outputFiles;
++ (void)export:(NSURL *)exportUrl fromOutput:(NSArray *)outputFiles handler:(void (^)(NSURL*))handler;
 + (void) overlapVideos;
 + (CALayer *)createVideoLayer:(CGRect)bounds size:(CGSize)newSize;
 

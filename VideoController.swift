@@ -43,6 +43,8 @@ class ImageAnimator {
     
     var frameNum = 0
     
+    var progressHandler:((CMTime)->Void)?
+    
     class func saveToLibrary(videoURL: URL) {
         PHPhotoLibrary.requestAuthorization { status in
             guard status == .authorized else { return }
@@ -71,7 +73,9 @@ class ImageAnimator {
         videoWriter = VideoWriter(renderSettings: settings)
     }
     
-    func render(completion: (()->Void)?) {
+    func render(completion: (()->Void)?, progressHandler: ((CMTime)->Void)?) {
+        
+        self.progressHandler = progressHandler
         
         // The VideoWriter will fail if a file exists at the URL, so clear it out first.
         ImageAnimator.removeFileAtURL(fileURL: self.settings.outputURL)
@@ -98,6 +102,11 @@ class ImageAnimator {
             
             let image = images.removeFirst()
             let presentationTime = CMTimeMultiply(frameDuration, Int32(frameNum))
+            
+            if let progressHandler = self.progressHandler {
+                progressHandler(presentationTime)
+            }
+            
             let success = videoWriter.addImage(image: image, withPresentationTime: presentationTime)
             if success == false {
                 fatalError("addImage() failed")

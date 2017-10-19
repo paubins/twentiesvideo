@@ -7,13 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F31743F1F97CAEF00DC6DAE /* RecorderViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 5FE4A3431F969FF100D66A82 /* RecorderViewController.h */; };
 		5F3174401F97CAEF00DC6DAE /* RecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE4A3441F969FF100D66A82 /* RecorderViewController.m */; };
-		5F3174411F97CAEF00DC6DAE /* AudioExporter.h in Sources */ = {isa = PBXBuildFile; fileRef = 5FE4A3461F96A22400D66A82 /* AudioExporter.h */; };
 		5F3174421F97CAEF00DC6DAE /* AudioExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE4A3451F96A22400D66A82 /* AudioExporter.m */; };
 		5F3174451F97CCEC00DC6DAE /* ExporterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3174441F97CCEC00DC6DAE /* ExporterController.m */; };
 		5F3174471F97D4A100DC6DAE /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3174461F97D4A100DC6DAE /* VideoController.swift */; };
 		5F3174491F97D7B600DC6DAE /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3174481F97D7B500DC6DAE /* ShareViewController.swift */; };
+		5F31744B1F9846F900DC6DAE /* Cluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F31744A1F9846F800DC6DAE /* Cluster.swift */; };
+		5F31744D1F9850B900DC6DAE /* AVMutableComposition+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F31744C1F9850B900DC6DAE /* AVMutableComposition+.swift */; };
+		5F31745C1F986D0E00DC6DAE /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3174501F986CF800DC6DAE /* libavcodec.a */; };
+		5F31745D1F986D0E00DC6DAE /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F31744F1F986CF800DC6DAE /* libavdevice.a */; };
+		5F31745E1F986D0E00DC6DAE /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F31744E1F986CF800DC6DAE /* libavfilter.a */; };
+		5F31745F1F986D0E00DC6DAE /* libavformat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3174511F986CF800DC6DAE /* libavformat.a */; };
+		5F3174601F986D0E00DC6DAE /* libavutil.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3174521F986CF800DC6DAE /* libavutil.a */; };
+		5F3174611F986D0E00DC6DAE /* libswresample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3174531F986CF800DC6DAE /* libswresample.a */; };
+		5F3174621F986D0E00DC6DAE /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3174541F986CF900DC6DAE /* libswscale.a */; };
+		5F3174641F986D9A00DC6DAE /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3174631F986D9A00DC6DAE /* libz.tbd */; };
+		5F3174661F986DA000DC6DAE /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F3174651F986DA000DC6DAE /* libiconv.tbd */; };
+		5F3174781F98868200DC6DAE /* FilteringVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3174741F98844300DC6DAE /* FilteringVideo.m */; };
+		5F31747B1F99181100DC6DAE /* AlphaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3174791F99181000DC6DAE /* AlphaViewController.m */; };
+		5F31747D1F991B3800DC6DAE /* Poster_alpha_CRF_15_24BPP.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 5F31747C1F991B2800DC6DAE /* Poster_alpha_CRF_15_24BPP.m4v */; };
+		5F31747F1F994FFB00DC6DAE /* 01161_old_film_look_paper_texture.mov in Resources */ = {isa = PBXBuildFile; fileRef = 5F31747E1F994FE900DC6DAE /* 01161_old_film_look_paper_texture.mov */; };
 		5FE4A3151F9695B700D66A82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE4A3141F9695B700D66A82 /* AppDelegate.swift */; };
 		5FE4A3171F9695B700D66A82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE4A3161F9695B700D66A82 /* ViewController.swift */; };
 		5FE4A31A1F9695B700D66A82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE4A3181F9695B700D66A82 /* Main.storyboard */; };
@@ -52,6 +65,26 @@
 		5F3174441F97CCEC00DC6DAE /* ExporterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExporterController.m; sourceTree = "<group>"; };
 		5F3174461F97D4A100DC6DAE /* VideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		5F3174481F97D7B500DC6DAE /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		5F31744A1F9846F800DC6DAE /* Cluster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cluster.swift; sourceTree = "<group>"; };
+		5F31744C1F9850B900DC6DAE /* AVMutableComposition+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVMutableComposition+.swift"; sourceTree = "<group>"; };
+		5F31744E1F986CF800DC6DAE /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavfilter.a; path = "Pods/FFmpeg/ffmpeg-ios-static-libs/lib/libavfilter.a"; sourceTree = "<group>"; };
+		5F31744F1F986CF800DC6DAE /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavdevice.a; path = "Pods/FFmpeg/ffmpeg-ios-static-libs/lib/libavdevice.a"; sourceTree = "<group>"; };
+		5F3174501F986CF800DC6DAE /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = "Pods/FFmpeg/ffmpeg-ios-static-libs/lib/libavcodec.a"; sourceTree = "<group>"; };
+		5F3174511F986CF800DC6DAE /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavformat.a; path = "Pods/FFmpeg/ffmpeg-ios-static-libs/lib/libavformat.a"; sourceTree = "<group>"; };
+		5F3174521F986CF800DC6DAE /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = "Pods/FFmpeg/ffmpeg-ios-static-libs/lib/libavutil.a"; sourceTree = "<group>"; };
+		5F3174531F986CF800DC6DAE /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = "Pods/FFmpeg/ffmpeg-ios-static-libs/lib/libswresample.a"; sourceTree = "<group>"; };
+		5F3174541F986CF900DC6DAE /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = "Pods/FFmpeg/ffmpeg-ios-static-libs/lib/libswscale.a"; sourceTree = "<group>"; };
+		5F3174631F986D9A00DC6DAE /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		5F3174651F986DA000DC6DAE /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		5F3174671F9872C300DC6DAE /* alphamask.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = alphamask.c; sourceTree = "<group>"; };
+		5F31746B1F98791F00DC6DAE /* filtering_video.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = filtering_video.m; path = ../../Downloads/filtering_video.m; sourceTree = "<group>"; };
+		5F31746F1F987E7C00DC6DAE /* filtering_video.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = filtering_video.h; sourceTree = "<group>"; };
+		5F3174731F98844300DC6DAE /* FilteringVideo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilteringVideo.h; sourceTree = "<group>"; };
+		5F3174741F98844300DC6DAE /* FilteringVideo.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c; path = FilteringVideo.m; sourceTree = "<group>"; };
+		5F3174791F99181000DC6DAE /* AlphaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlphaViewController.m; sourceTree = "<group>"; };
+		5F31747A1F99181000DC6DAE /* AlphaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlphaViewController.h; sourceTree = "<group>"; };
+		5F31747C1F991B2800DC6DAE /* Poster_alpha_CRF_15_24BPP.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = Poster_alpha_CRF_15_24BPP.m4v; sourceTree = "<group>"; };
+		5F31747E1F994FE900DC6DAE /* 01161_old_film_look_paper_texture.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = 01161_old_film_look_paper_texture.mov; sourceTree = "<group>"; };
 		5FE4A3111F9695B600D66A82 /* TwentiesVideoMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwentiesVideoMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE4A3141F9695B700D66A82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FE4A3161F9695B700D66A82 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +115,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F3174661F986DA000DC6DAE /* libiconv.tbd in Frameworks */,
+				5F3174641F986D9A00DC6DAE /* libz.tbd in Frameworks */,
+				5F31745C1F986D0E00DC6DAE /* libavcodec.a in Frameworks */,
+				5F31745D1F986D0E00DC6DAE /* libavdevice.a in Frameworks */,
+				5F31745E1F986D0E00DC6DAE /* libavfilter.a in Frameworks */,
+				5F31745F1F986D0E00DC6DAE /* libavformat.a in Frameworks */,
+				5F3174601F986D0E00DC6DAE /* libavutil.a in Frameworks */,
+				5F3174611F986D0E00DC6DAE /* libswresample.a in Frameworks */,
+				5F3174621F986D0E00DC6DAE /* libswscale.a in Frameworks */,
 				C38858EDDC73ADD6836818D7 /* Pods_TwentiesVideoMaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +150,15 @@
 		1646AC677CDFBB810167F865 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F3174651F986DA000DC6DAE /* libiconv.tbd */,
+				5F3174631F986D9A00DC6DAE /* libz.tbd */,
+				5F3174501F986CF800DC6DAE /* libavcodec.a */,
+				5F31744F1F986CF800DC6DAE /* libavdevice.a */,
+				5F31744E1F986CF800DC6DAE /* libavfilter.a */,
+				5F3174511F986CF800DC6DAE /* libavformat.a */,
+				5F3174521F986CF800DC6DAE /* libavutil.a */,
+				5F3174531F986CF800DC6DAE /* libswresample.a */,
+				5F3174541F986CF900DC6DAE /* libswscale.a */,
 				06C4BEDE0F86E0A034152102 /* Pods_TwentiesVideoMaker.framework */,
 				7832F78789CF4005C93A3489 /* Pods_TwentiesVideoMakerTests.framework */,
 				7E881FD0202F3561C59EE797 /* Pods_TwentiesVideoMakerUITests.framework */,
@@ -131,6 +182,16 @@
 		5FE4A3081F9695B600D66A82 = {
 			isa = PBXGroup;
 			children = (
+				5F31747E1F994FE900DC6DAE /* 01161_old_film_look_paper_texture.mov */,
+				5F31747A1F99181000DC6DAE /* AlphaViewController.h */,
+				5F3174791F99181000DC6DAE /* AlphaViewController.m */,
+				5F3174731F98844300DC6DAE /* FilteringVideo.h */,
+				5F3174741F98844300DC6DAE /* FilteringVideo.m */,
+				5F31746F1F987E7C00DC6DAE /* filtering_video.h */,
+				5F31746B1F98791F00DC6DAE /* filtering_video.m */,
+				5F3174671F9872C300DC6DAE /* alphamask.c */,
+				5F31744C1F9850B900DC6DAE /* AVMutableComposition+.swift */,
+				5F31744A1F9846F800DC6DAE /* Cluster.swift */,
 				5F3174461F97D4A100DC6DAE /* VideoController.swift */,
 				5F3174481F97D7B500DC6DAE /* ShareViewController.swift */,
 				5FE4A3431F969FF100D66A82 /* RecorderViewController.h */,
@@ -139,6 +200,7 @@
 				5FE4A3451F96A22400D66A82 /* AudioExporter.m */,
 				5F3174431F97CCEC00DC6DAE /* ExporterController.h */,
 				5F3174441F97CCEC00DC6DAE /* ExporterController.m */,
+				5F31747C1F991B2800DC6DAE /* Poster_alpha_CRF_15_24BPP.m4v */,
 				5FE4A3131F9695B600D66A82 /* TwentiesVideoMaker */,
 				5FE4A3281F9695B700D66A82 /* TwentiesVideoMakerTests */,
 				5FE4A3331F9695B700D66A82 /* TwentiesVideoMakerUITests */,
@@ -309,6 +371,8 @@
 			files = (
 				5FE4A31F1F9695B700D66A82 /* LaunchScreen.storyboard in Resources */,
 				5FE4A31C1F9695B700D66A82 /* Assets.xcassets in Resources */,
+				5F31747F1F994FFB00DC6DAE /* 01161_old_film_look_paper_texture.mov in Resources */,
+				5F31747D1F991B3800DC6DAE /* Poster_alpha_CRF_15_24BPP.m4v in Resources */,
 				5FE4A31A1F9695B700D66A82 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,7 +471,11 @@
 				"${BUILT_PRODUCTS_DIR}/KDCircularProgress/KDCircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/LLVideoEditor/LLVideoEditor.framework",
 				"${BUILT_PRODUCTS_DIR}/Player/Player.framework",
+				"${BUILT_PRODUCTS_DIR}/RecordButton/RecordButton.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftScanner/SwiftScanner.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyCam/SwiftyCam.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyTimer/SwiftyTimer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -418,7 +486,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KDCircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LLVideoEditor.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Player.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RecordButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftScanner.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyCam.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyTimer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -502,10 +574,12 @@
 				5F3174451F97CCEC00DC6DAE /* ExporterController.m in Sources */,
 				5FE4A3151F9695B700D66A82 /* AppDelegate.swift in Sources */,
 				5F3174471F97D4A100DC6DAE /* VideoController.swift in Sources */,
-				5F31743F1F97CAEF00DC6DAE /* RecorderViewController.h in Sources */,
+				5F31744D1F9850B900DC6DAE /* AVMutableComposition+.swift in Sources */,
+				5F31747B1F99181100DC6DAE /* AlphaViewController.m in Sources */,
 				5F3174401F97CAEF00DC6DAE /* RecorderViewController.m in Sources */,
+				5F3174781F98868200DC6DAE /* FilteringVideo.m in Sources */,
+				5F31744B1F9846F900DC6DAE /* Cluster.swift in Sources */,
 				5F3174491F97D7B600DC6DAE /* ShareViewController.swift in Sources */,
-				5F3174411F97CAEF00DC6DAE /* AudioExporter.h in Sources */,
 				5F3174421F97CAEF00DC6DAE /* AudioExporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -678,12 +752,18 @@
 				DEVELOPMENT_TEAM = 3XSPEUHQ6Y;
 				INFOPLIST_FILE = TwentiesVideoMaker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/FFmpeg/ffmpeg-ios-static-libs/lib",
+				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.paubins.TwentiesVideoMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TwentiesVideoMaker-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
@@ -697,11 +777,17 @@
 				DEVELOPMENT_TEAM = 3XSPEUHQ6Y;
 				INFOPLIST_FILE = TwentiesVideoMaker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/FFmpeg/ffmpeg-ios-static-libs/lib",
+				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.paubins.TwentiesVideoMaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "TwentiesVideoMaker-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};

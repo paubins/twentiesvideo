@@ -2,32 +2,49 @@ PODS:
   - Cartography (2.0.0)
   - DynamicButton (5.0.0)
   - FCAlertView (1.4.0)
+  - FFmpeg (2.8.3):
+    - FFmpeg/precompiled (= 2.8.3)
+  - FFmpeg/precompiled (2.8.3)
   - Hue (3.0.0)
   - KDCircularProgress (1.5.2)
   - LLVideoEditor (1.0.0)
   - Player (0.8.3)
+  - RecordButton (1.0.2)
+  - SwiftScanner (1.0.3)
   - SwiftyCam (2.6.0)
+  - SwiftyJSON (3.1.4)
+  - SwiftyTimer (2.0.0)
 
 DEPENDENCIES:
   - Cartography
   - DynamicButton
   - FCAlertView
+  - FFmpeg
   - Hue
   - KDCircularProgress
   - LLVideoEditor
   - Player
+  - RecordButton
+  - SwiftScanner
   - SwiftyCam
+  - SwiftyJSON
+  - SwiftyTimer
 
 SPEC CHECKSUMS:
   Cartography: d295eb25ab54bb57eecd8c2f04e9648c850f1281
   DynamicButton: 4c2fef968e4aa0a8a6ed7ca6b8a58c8e21a36cdc
   FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
+  FFmpeg: f1428c3b60b5f9e349fcd5d7878705cd7f9a26f6
   Hue: b8fe1e43eef13631331eebecb2198b68e2622f95
   KDCircularProgress: 12f677b2deb02409ab48c6cae1898d146b8ad549
   LLVideoEditor: f287ea4a532dade2b40ba042c80bf76a546325e5
   Player: ce00516fdce5a44c644697200244bc4de7e50a24
+  RecordButton: 76677be0f4b94f8a387454a23b4b64bd9b6c0e51
+  SwiftScanner: 70897e82bece6e6a0803b105efed6118c46fa20e
   SwiftyCam: 86c114177a1b1f5dc2c82384577d0c20b922a31b
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwiftyTimer: 2efd74b060d69ad4f1496baf5bbedbe132125fcf
 
-PODFILE CHECKSUM: 8ef6ed9aab5c30b48c23587f077752f2883e1807
+PODFILE CHECKSUM: e37c5a9414fa6756fd0970353b23346b9f4d72df
 
 COCOAPODS: 1.3.1

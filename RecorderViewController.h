@@ -17,6 +17,6 @@
 
 @interface RecorderViewController : UIViewController
 
-- (void) processAudio:(NSString *)path;
+- (void) processAudio:(NSString *)path handler:(void (^)(NSData*))handler;
 
 @end

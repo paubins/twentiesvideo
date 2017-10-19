@@ -109,7 +109,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/KDCircularProgress/KDCircularProgress.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LLVideoEditor/LLVideoEditor.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Player/Player.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RecordButton/RecordButton.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftScanner/SwiftScanner.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyCam/SwiftyCam.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyTimer/SwiftyTimer.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework"
@@ -119,7 +123,11 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/KDCircularProgress/KDCircularProgress.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LLVideoEditor/LLVideoEditor.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Player/Player.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RecordButton/RecordButton.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftScanner/SwiftScanner.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyCam/SwiftyCam.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftyTimer/SwiftyTimer.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

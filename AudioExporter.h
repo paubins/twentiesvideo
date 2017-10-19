@@ -11,6 +11,7 @@
 
 @interface AudioExporter : NSObject
 
-+ (NSString *)getAudioFromVideo:(AVAsset *)asset handler:(void (^)(AVAssetExportSession*))handler;
++ (AVAssetExportSession *)getAudioFromVideo:(AVAsset *)asset handler:(void (^)(AVAssetExportSession*))handler;
++ (NSString *)exportAssetAsWaveFormat:(NSString*)filePath progressHandler:(void (^)(CMTime))progressHandler handler:(void (^)(NSString*))handler;
 
 @end

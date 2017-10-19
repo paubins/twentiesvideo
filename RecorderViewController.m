@@ -88,7 +88,7 @@
   }
 }
 
-- (void) processAudio:(NSString *)assetPath {
+- (void) processAudio:(NSString *)assetPath handler:(void (^)(NSString*))handler {
     NSString *service = @"https://speech.googleapis.com/v1/speech:recognize";
     service = [service stringByAppendingString:@"?key="];
     service = [service stringByAppendingString:API_KEY];
@@ -97,8 +97,10 @@
     NSDictionary *configRequest = @{@"encoding":@"LINEAR16",
                                     @"sampleRateHertz":@(SAMPLE_RATE),
                                     @"languageCode":@"en-US",
-                                    @"maxAlternatives":@30};
-    NSDictionary *audioRequest = @{@"content":[audioData base64EncodedStringWithOptions:0]};
+                                    @"enableWordTimeOffsets": @YES,
+                                    @"maxAlternatives":@1};
+    
+    NSDictionary *audioRequest = @{@"content": [audioData base64EncodedStringWithOptions:0]};
     NSDictionary *requestDictionary = @{@"config":configRequest,
                                         @"audio":audioRequest};
     NSError *error;
@@ -124,8 +126,8 @@
          dispatch_async(dispatch_get_main_queue(),
                         ^{
                             NSString *stringResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                            
                             NSLog(@"RESULT: %@", stringResult);
+                            handler(data);
                         });
      }];
     [task resume];

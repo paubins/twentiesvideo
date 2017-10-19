@@ -15,6 +15,12 @@ target 'TwentiesVideoMaker' do
   pod 'FCAlertView'
   pod 'Hue'
 
+  pod 'SwiftyJSON'
+  pod 'SwiftScanner'
+  pod 'FFmpeg'
+  pod "RecordButton"
+  pod 'SwiftyTimer'
+
   target 'TwentiesVideoMakerTests' do
     inherit! :search_paths
     # Pods for testing
