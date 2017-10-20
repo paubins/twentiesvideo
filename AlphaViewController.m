@@ -103,9 +103,9 @@
   // This video setting indicates that native 32 bit endian pixels with a leading
   // ignored alpha channel will be emitted by the decoding process.
   
-  NSDictionary *videoSettings;
-  videoSettings = [NSDictionary dictionaryWithObject:
-                   [NSNumber numberWithUnsignedInt:kCVPixelFormatType_32BGRA] forKey:(id)kCVPixelBufferPixelFormatTypeKey];
+    NSDictionary *videoSettings = @{
+                                    (id)kCVPixelBufferPixelFormatTypeKey: [NSNumber numberWithUnsignedInt:kCVPixelFormatType_32BGRA]
+                                    };
   
     NSArray *videoTracksRGB = [avUrlAssetRGB tracksWithMediaType:AVMediaTypeVideo];
   
@@ -289,16 +289,16 @@
   
   int scale = (int) [UIScreen mainScreen].scale;
   
-  if (scale == 1) {
-    // No-op
-  } else if (scale == 2) {
-    size.width = size.width / 2;
-    size.height = size.height / 3;
-  } else {
-    // WTF ?
-    NSAssert(FALSE, @"unhandled scale %d", scale);
-  }
-  
+//  if (scale == 1) {
+//    // No-op
+//  } else if (scale == 2) {
+//    size.width = size.width / 2;
+//    size.height = size.height / 3;
+//  } else {
+//    // WTF ?
+//    NSAssert(FALSE, @"unhandled scale %d", scale);
+//  }
+
   UIGraphicsBeginImageContextWithOptions(size, FALSE, scale);
   
   CGRect frame = CGRectZero;
