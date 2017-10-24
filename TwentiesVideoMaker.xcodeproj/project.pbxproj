@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F15F8681F9A89770052439C /* SDAVAssetExportSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F15F8671F9A89770052439C /* SDAVAssetExportSession.m */; };
 		5F3174401F97CAEF00DC6DAE /* RecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE4A3441F969FF100D66A82 /* RecorderViewController.m */; };
 		5F3174421F97CAEF00DC6DAE /* AudioExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE4A3451F96A22400D66A82 /* AudioExporter.m */; };
 		5F3174451F97CCEC00DC6DAE /* ExporterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F3174441F97CCEC00DC6DAE /* ExporterController.m */; };
@@ -61,6 +62,8 @@
 		0E7145E9DC021D0A008616C9 /* Pods-TwentiesVideoMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwentiesVideoMaker.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwentiesVideoMaker/Pods-TwentiesVideoMaker.release.xcconfig"; sourceTree = "<group>"; };
 		1BAB6B938F5C7266E84CD97C /* Pods-TwentiesVideoMakerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwentiesVideoMakerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwentiesVideoMakerUITests/Pods-TwentiesVideoMakerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		33F91E970B66084DC14C6B12 /* Pods-TwentiesVideoMakerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwentiesVideoMakerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TwentiesVideoMakerTests/Pods-TwentiesVideoMakerTests.release.xcconfig"; sourceTree = "<group>"; };
+		5F15F8661F9A89760052439C /* SDAVAssetExportSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDAVAssetExportSession.h; sourceTree = "<group>"; };
+		5F15F8671F9A89770052439C /* SDAVAssetExportSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDAVAssetExportSession.m; sourceTree = "<group>"; };
 		5F3174431F97CCEC00DC6DAE /* ExporterController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExporterController.h; sourceTree = "<group>"; };
 		5F3174441F97CCEC00DC6DAE /* ExporterController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExporterController.m; sourceTree = "<group>"; };
 		5F3174461F97D4A100DC6DAE /* VideoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
@@ -185,6 +188,8 @@
 				5F31747E1F994FE900DC6DAE /* 01161_old_film_look_paper_texture.mov */,
 				5F31747A1F99181000DC6DAE /* AlphaViewController.h */,
 				5F3174791F99181000DC6DAE /* AlphaViewController.m */,
+				5F15F8661F9A89760052439C /* SDAVAssetExportSession.h */,
+				5F15F8671F9A89770052439C /* SDAVAssetExportSession.m */,
 				5F3174731F98844300DC6DAE /* FilteringVideo.h */,
 				5F3174741F98844300DC6DAE /* FilteringVideo.m */,
 				5F31746F1F987E7C00DC6DAE /* filtering_video.h */,
@@ -577,6 +582,7 @@
 				5F31744D1F9850B900DC6DAE /* AVMutableComposition+.swift in Sources */,
 				5F31747B1F99181100DC6DAE /* AlphaViewController.m in Sources */,
 				5F3174401F97CAEF00DC6DAE /* RecorderViewController.m in Sources */,
+				5F15F8681F9A89770052439C /* SDAVAssetExportSession.m in Sources */,
 				5F3174781F98868200DC6DAE /* FilteringVideo.m in Sources */,
 				5F31744B1F9846F900DC6DAE /* Cluster.swift in Sources */,
 				5F3174491F97D7B600DC6DAE /* ShareViewController.swift in Sources */,

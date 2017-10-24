@@ -8,6 +8,9 @@
     <string>To Record Audio With Video</string>
     <key>NSPhotoLibraryUsageDescription</key>
     <string>We save the recorded call to your photos.</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>We save the recorded call to your photos.</string>
+    
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

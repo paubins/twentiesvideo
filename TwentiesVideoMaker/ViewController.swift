@@ -204,163 +204,80 @@ extension ViewController : SwiftyCamViewControllerDelegate {
         
         self.asset = AVURLAsset(url: url)
         
+        var phrases:[String] = []
+        
+//        // 1. Get audio from recorded video
+//        let exportSession:AVAssetExportSession = AudioExporter.getAudioFromVideo(self.asset) { (exportSession) in
+//
+//            // 2. Convert audio to text
+//            AudioExporter.exportAsset(asWaveFormat: exportSession?.outputURL!.path, progressHandler: self.progressHandler, handler: { (newAudioPath) in
+//
+//                self.processAudioProgress += 50.0
+//                self.overallProgress += self.processAudioProgress
+//
+//                recorderViewController.processAudio(newAudioPath, handler: { (data) in
+//                    self.processAudioProgress += 50.0
+//                    self.overallProgress += self.processAudioProgress
+//
+//                    let json = JSON(data: data!)
+//
+//                    if let words = json["results"][0]["alternatives"][0].dictionary {
+//                        //Now you got your value
+//
+//                        if let wordArray = words["words"]?.array {
+//                            var previousStartTime:Float = 0.0
+//                            var phrase:[String] = []
+//
+//                            for (i, word) in wordArray.enumerated() {
+//                                let scanner = StringScanner(word["startTime"].string!)
+//
+//                                let startTime = try! scanner.scanFloat()
+//                                let endTime = try! StringScanner(word["endTime"].string!).scanFloat()
+//
+//                                if previousStartTime != 0.0 && previousStartTime < startTime - 5 {
+//                                    phrases.append(phrase.joined(separator: " "))
+//                                    phrase = [word["word"].string!]
+//                                } else {
+//                                    phrase.append(word["word"].string!)
+//                                }
+//
+//                                if (i == wordArray.count-1 && phrases.count == 0) {
+//                                    phrases.append(phrase.joined(separator: " "))
+//                                }
+//
+//                                previousStartTime = endTime
+//                            }
+//                        }
+//                    } else {
+//                        print("nope")
+//                        let alert:FCAlertView = FCAlertView()
+//                        alert.makeAlertTypeWarning()
+//                        alert.showAlert(inView: self,
+//                                        withTitle: "Error!",
+//                                        withSubtitle: "There was an error creating your video",
+//                                        withCustomImage: nil,
+//                                        withDoneButtonTitle: "Okay",
+//                                        andButtons: nil)
+//
+//                        alert.colorScheme = UIColor(hex: "#8C9AFF")
+//
+//                        self.resetProgress()
+//                    }
+//                })
+//            })
+//        }
+//
+//        for phrase in phrases {
+//            // 3. Convert text to images for display as the speech card
+//            let image:UIImage = self.imageFromText(text: phrase as NSString, font: UIFont.systemFont(ofSize: 20), maxWidth: 720, color: .orange)
+//        }
+        
         let alphaViewController:AlphaViewController = AlphaViewController()
-        alphaViewController.loadVideoContent(url.path, handler: { (aString) in
+        alphaViewController.images.add(self.imageFromText(text: "Oh my god look out behind you!", font: UIFont.systemFont(ofSize: 20), maxWidth: 720, color: .orange))
+            
+        alphaViewController.loadVideoContent(url.path, handler: { (path) in
             print("created")
-            
-            var renderSettings:RenderSettings = RenderSettings()
-            renderSettings.size = CGSize(width: 720, height: 1280)
-            
-            let imageAnimator:ImageAnimator = ImageAnimator(renderSettings: renderSettings)
-            
-            var i = 0
-            var path:String = NSTemporaryDirectory().appending("Poster\(i)@2x.png")
-            while FileManager().fileExists(atPath: path) {
-                imageAnimator.images.append(UIImage(contentsOfFile: path)!)
-                i += 1
-                path = NSTemporaryDirectory().appending("Poster\(i)@2x.png")
-            }
-            
-            imageAnimator.render(completion: {
-                print("finally finished")
-                
-                // remove everything
-                var i = 0
-                var path:String = NSTemporaryDirectory().appending("Poster\(i)@2x.png")
-                while FileManager().fileExists(atPath: path) {
-                    try! FileManager().removeItem(at: URL(fileURLWithPath: path))
-                    i += 1
-                    path = NSTemporaryDirectory().appending("Poster\(i)@2x.png")
-                }
-                
-                try! FileManager().removeItem(at: url)
-            }, progressHandler: { (time) in
-                self.reconstructionProgress = Double(100 * (CMTimeGetSeconds(time) / CMTimeGetSeconds(self.asset.duration)))
-                self.overallProgress += self.reconstructionProgress
-            })
         })
-        
-        return
-        
-        // 1. Get audio from recorded video
-        let exportSession:AVAssetExportSession = AudioExporter.getAudioFromVideo(asset) { (exportSession) in
-            
-            // 2. Convert audio to text
-            AudioExporter.exportAsset(asWaveFormat: exportSession?.outputURL!.path, progressHandler: self.progressHandler, handler: { (newAudioPath) in
-                
-                
-                self.processAudioProgress += 50.0
-                self.overallProgress += self.processAudioProgress
-                
-                recorderViewController.processAudio(newAudioPath, handler: { (data) in
-                    self.processAudioProgress += 50.0
-                    self.overallProgress += self.processAudioProgress
-                    
-                    let json = JSON(data: data!)
-                    
-                    var phrases:[String] = []
-
-                    if let words = json["results"][0]["alternatives"][0].dictionary {
-                        //Now you got your value
-                        
-                        if let wordArray = words["words"]?.array {
-                            var previousStartTime:Float = 0.0
-                            var phrase:[String] = []
-                            
-                            for (i, word) in wordArray.enumerated() {
-                                
-                                
-                                let scanner = StringScanner(word["startTime"].string!)
-                                let startTime = try! scanner.scanFloat()
-
-                                let endTime = try! StringScanner(word["endTime"].string!).scanFloat()
-
-                                if previousStartTime != 0.0 && previousStartTime < startTime - 5 {
-                                    phrases.append(phrase.joined(separator: " "))
-                                    phrase = [word["word"].string!]
-                                } else {
-                                    phrase.append(word["word"].string!)
-                                }
-
-                                if (i == wordArray.count-1 && phrases.count == 0) {
-                                    phrases.append(phrase.joined(separator: " "))
-                                }
-
-                                previousStartTime = endTime
-                            }
-                        }
-                    } else {
-                        print("nope")
-                        let alert:FCAlertView = FCAlertView()
-                        alert.makeAlertTypeWarning()
-                        alert.showAlert(inView: self,
-                                        withTitle: "Error!",
-                                        withSubtitle: "There was an error creating your video",
-                                        withCustomImage: nil,
-                                        withDoneButtonTitle: "Okay",
-                                        andButtons: nil)
-
-                        alert.colorScheme = UIColor(hex: "#8C9AFF")
-                        
-                        self.resetProgress()
-                    }
-                    
-                    for phrase in phrases {
-                        // 3. Convert text to images for display as the speech card
-                        let image:UIImage = self.imageFromText(text: phrase as NSString, font: UIFont.systemFont(ofSize: 20), maxWidth: 720, color: .orange)
-                        
-                        var renderSettings:RenderSettings = RenderSettings()
-                        renderSettings.size = CGSize(width: 720, height: 1280)
-                        
-                        let imageAnimator:ImageAnimator = ImageAnimator(renderSettings: renderSettings)
-                        for i in 0...30 {
-                            imageAnimator.images.append(image)
-                        }
-                        
-                        // 4. Render out the text speech files as video files
-                        let queue = DispatchQueue(label: "com.paubins.renderQueue")
-                        
-                        imageAnimator.render(completion: {
-                            print("completed")
-                            self.outputURLs.append(imageAnimator.settings.outputURL)
-                            
-                            if self.outputURLs.count == phrases.count + 1 {
-                                let outputFileName = UUID().uuidString
-                                let outputFilePath = (NSTemporaryDirectory() as NSString).appendingPathComponent((outputFileName as NSString).appendingPathExtension("mov")!)
-                                
-                                ExporterController.export(URL(fileURLWithPath: outputFilePath), fromOutput: self.outputURLs, handler: { (url) in
-                                    
-                                    let alphaViewController:AlphaViewController = AlphaViewController()
-                                    alphaViewController.loadVideoContent(url?.path, handler: { (aString) in
-                                        print("created")
-                                        
-                                        var renderSettings:RenderSettings = RenderSettings()
-                                        renderSettings.size = CGSize(width: 720, height: 1280)
-                                        
-                                        let imageAnimator:ImageAnimator = ImageAnimator(renderSettings: renderSettings)
-                                        
-                                        for i in 0...21 {
-                                            imageAnimator.images.append(UIImage(contentsOfFile: "Poster\(i)@2x")!)
-                                        }
-                                        
-                                        imageAnimator.render(completion: {
-                                            print("finally finished")
-                                        }, progressHandler: { (time) in
-                                            self.reconstructionProgress = Double(100 * (CMTimeGetSeconds(time) / CMTimeGetSeconds(self.asset.duration)))
-                                            self.overallProgress += self.reconstructionProgress
-                                        })
-                                    })
-                                })
-                                self.outputURLs = []
-                            }
-                        }, progressHandler: { (time) in
-                            self.slidesProgress = Double(100 * (CMTimeGetSeconds(time) / CMTimeGetSeconds(self.asset.duration)))
-                            self.overallProgress += self.slidesProgress
-                        })
-                    }
-                })
-            })
-        }
         
         self.exportTimer = Timer.every(0.2.second) {
             if (self.progressView.progress == 1) {
@@ -369,9 +286,9 @@ extension ViewController : SwiftyCamViewControllerDelegate {
             }
             
             // check progress of initial export of audio
-            if (exportSession.progress < 1 || self.overallProgress == 0.0) {
-                 self.overallProgress = Double(Double(exportSession.progress) * 100)
-            }
+//            if (exportSession.progress < 1 || self.overallProgress == 0.0) {
+//                 self.overallProgress = Double(Double(exportSession.progress) * 100)
+//            }
             
 //            self.progressView.progress = self.overallProgress/800
         }
